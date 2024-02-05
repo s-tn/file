@@ -21,7 +21,7 @@ let a = {
     }
 }
 
-reloadDb = (d) => (dest = d, a._upload = multer({ dest }), a._upload.dest = dest);
+let reloadDb = (d) => (dest = d, a._upload = multer({ dest }), a._upload.dest = dest);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
@@ -37,7 +37,7 @@ app.post('/upload', (...args) => (console.log(a.upload.dest), a.upload.array("im
     currentDir ++;
     reloadDb(__dirname + `/public/uploads/${currentDir}/`);
     console.log(currentDir, dest);
-    res.json({success: true});
+    res.json({success: true, id: currentDir --, url: `${req.headers.origin}/d/${currentDir --}`});
 });
 
 app.get('/d/:id', async (req, res) => {

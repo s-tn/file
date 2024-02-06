@@ -42,8 +42,11 @@ app.post('/upload', (...args) => (console.log(a.upload.dest), a.upload.array("im
 
 app.get('/d/:id', async (req, res) => {
     try {
-        var id = req.params.id;
+        var id = String(req.params.id);
+        console.log(id, __dirname + `/public/uploads${id ? `/${id}` : ''}`)
         var files = await fs.readdir(__dirname + `/public/uploads${id ? `/${id}` : ''}`);
+
+        console.log(files.length);
 
         if (!files.length) {
             return res.json({error: "No files found."});
@@ -51,9 +54,12 @@ app.get('/d/:id', async (req, res) => {
 
         var filename = files[0];
 
-        return res.download(__dirname + `/public/uploads/${id}/` + filename, "file" + filename.slice(filename.lastIndexOf('.')));
-    } catch {
-        return res.json({error: "File not found."})
+        return res.writeHead(200, {
+            'Content-Disposition': `attachment; filename=served_file`
+        }).end((await fs.readFile(__dirname + `/public/uploads/${id}/` + filename)));
+    } catch(e) {
+        console.error(e);
+        return res.json({error: "File not found."});
     }
 });
 

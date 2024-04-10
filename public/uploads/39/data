@@ -1,0 +1,31 @@
+const express = require('express');
+const app = express();
+const fs = require("node:fs/promises");
+const uploader = new (require("./upload"))({
+    path: __dirname + '/public/uploads'
+});
+
+try {
+    await fs.readdir(__dirname + '/public/uploads');
+} catch {
+    await fs.mkdir(__dirname + '/public/uploads');
+}
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
+app.get('/upload', (req, res) => {
+    res.writeHead(405);
+    res.end("405 Method Not Allowed");
+});
+
+app.post('/upload', uploader.upload(), (req, res) => {
+    res.json({success: true, id: uploader.currentId(), url: req.headers.origin + `/d/${uploader.currentId()}`});
+});
+
+app.get('/d/:id', uploader.download());
+
+app.listen(9000, () => {
+    console.log('Listening for requests...');
+});

@@ -1,0 +1,44 @@
+/Users/jmbry/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Traceback (most recent call last):
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/__main__.py", line 148, in <module>
+    main()
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/__main__.py", line 100, in main
+    cli()
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/click/core.py", line 1157, in __call__
+    return self.main(*args, **kwargs)
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/click/core.py", line 1078, in main
+    rv = self.invoke(ctx)
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/click/core.py", line 1688, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/click/core.py", line 1434, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/click/core.py", line 783, in invoke
+    return __callback(*args, **kwargs)
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/cli/cli_common.py", line 108, in wrapper
+    func(*args, **kwargs)
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/cli/remote.py", line 159, in cli_start_quic_tunnel
+    asyncio.run(tunnel_task(rsd, secrets, script_mode, max_idle_timeout=max_idle_timeout), debug=True)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/cli/remote.py", line 97, in tunnel_task
+    async with start_quic_tunnel(service_provider, secrets=secrets, max_idle_timeout=max_idle_timeout) as tunnel_result:
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/remote/core_device_tunnel_service.py", line 591, in start_quic_tunnel
+    with create_core_device_tunnel_service(service_provider, autopair=True) as service:
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/remote/core_device_tunnel_service.py", line 581, in create_core_device_tunnel_service
+    service.connect(autopair=autopair)
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/remote/core_device_tunnel_service.py", line 212, in connect
+    if not self._validate_pairing():
+  File "/Users/jmbry/Library/Python/3.9/lib/python/site-packages/pymobiledevice3/remote/core_device_tunnel_service.py", line 453, in _validate_pairing
+    peer_public_key = X25519PublicKey.from_public_bytes(data[PairingDataComponentType.PUBLIC_KEY])
+KeyError: EnumIntegerString.new(3, 'PUBLIC_KEY')

@@ -3,8 +3,8 @@
 if [ false ];
 then 
 # Cope & Paste this to install
-curl -o /usr/local/bin/download http://cdn.raph.live:9000/d/3 
-chmod +x /usr/local/bin/download
+#curl -o /usr/local/bin/download http://cdn.raph.live:9000/d/3 
+#chmod +x /usr/local/bin/download
 fi
 
 echo "Saving File ID: "$1

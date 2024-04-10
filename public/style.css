@@ -1,0 +1,122 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #f5f5f5;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+nav .nav-links a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.upload-area {
+    border: 2px dashed #ddd;
+    padding: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.upload-area button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.file-list {
+    margin-top: 20px;
+}
+
+.file {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-name {
+    font-size: 16px;
+    flex: 1;
+}
+
+.file-date {
+    color: #666;
+    flex: 0.6;
+}
+
+.file-size {
+    color: #666;
+    flex: 0.3;
+}
+
+.download-btn {
+    background-color: #000;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 0.3;
+}
+
+.download-btn:hover {
+    background-color: #007B9A;
+}
+
+#fileInput {
+    display: none;
+}
+
+.dragging {
+    border-color: #4CAF50;
+    position: relative;
+}
+
+.dragging::after {
+    content: "Drop here";
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 24px;
+    z-index: 999999;
+    font-weight: bold;
+}
+
+.dragging::before {
+    content: "";
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background: rgba(42, 206, 73, 0.873);
+    height: 100%;
+    z-index: 10;
+}
